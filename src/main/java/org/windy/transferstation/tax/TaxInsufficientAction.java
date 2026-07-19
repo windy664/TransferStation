@@ -1,4 +1,7 @@
 package org.windy.transferstation.tax;
 
-public class TaxInsufficientAction {
+public enum TaxInsufficientAction {
+    REFUSE,
+    ROUND_UP,
+    FLOOR
 }

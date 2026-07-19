@@ -1,0 +1,27 @@
+name: transferstation
+version: '${version}'
+main: org.windy.transferstation.TransferStation
+api-version: '1.21'
+description: Item transfer station with mail delivery
+author: Windy
+
+dependencies:
+  server:
+    MailBox:
+      load: BEFORE
+      required: true
+      join-classpath: true
+    PlaceholderAPI:
+      required: false
+      join-classpath: true
+
+permissions:
+  transfer.use:
+    description: Allows player to use the transfer station.
+    default: true
+  transfer.admin:
+    description: Allows administrator to reload configurations.
+    default: op
+  transfer.limit.unlimited:
+    description: Unlimited transfer times daily.
+    default: false
