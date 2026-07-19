@@ -1,0 +1,3 @@
+name: TransferStation
+version: '${version}'
+main: org.windy.transferstation.TransferStation

@@ -1,0 +1,185 @@
+gui:
+  title: "&3✉ &b中转暂存仓 &8- &7放入后关闭自动投递"
+  rows: 6
+
+tax:
+  default-rate: 2.0
+  insufficient-action: "REFUSE"
+  groups:
+    # 贵重品 — 钻石/绿宝石/下界合金/远古残骸 5%
+    precious:
+      materials:
+        - "^DIAMOND$"
+        - "^EMERALD$"
+        - "^NETHERITE_SCRAP$"
+        - "^NETHERITE_INGOT$"
+        - "^ANCIENT_DEBRIS$"
+      rate: 5.0
+    # 矿石原料 — 铁/金/铜/青金石/煤 3%
+    ores:
+      materials:
+        - "^RAW_IRON$"
+        - "^RAW_GOLD$"
+        - "^RAW_COPPER$"
+        - "^IRON_INGOT$"
+        - "^GOLD_INGOT$"
+        - "^COPPER_INGOT$"
+        - "^LAPIS_LAZULI$"
+        - "^COAL$"
+        - "^.*_ORE$"
+      rate: 3.0
+    # 护甲（放tools前面，避免_BOOTS误匹配）3%
+    armor:
+      materials:
+        - "_HELMET$"
+        - "_CHESTPLATE$"
+        - "_LEGGINGS$"
+        - "_BOOTS$"
+      rate: 3.0
+    # 工具与武器 3%
+    tools:
+      materials:
+        - "_SWORD$"
+        - "_PICKAXE$"
+        - "_AXE$"
+        - "_SHOVEL$"
+        - "_HOE$"
+        - "^TRIDENT$"
+        - "^BOW$"
+        - "^CROSSBOW$"
+      rate: 3.0
+    # 附魔物品 4%
+    enchanted:
+      materials:
+        - "^ENCHANTED_BOOK$"
+        - "^ENCHANTED_GOLDEN_APPLE$"
+      rate: 4.0
+    # 末地/下界稀有 4%
+    endgame:
+      materials:
+        - "^ENDER_PEARL$"
+        - "^ENDER_EYE$"
+        - "^BLAZE_ROD$"
+        - "^BLAZE_POWDER$"
+        - "^SHULKER_SHELL$"
+        - "^.*_SHULKER_BOX$"
+        - "^TOTEM_OF_UNDYING$"
+        - "^ELYTRA$"
+        - "^DRAGON_EGG$"
+        - "^NAUTILUS_SHELL$"
+        - "^HEART_OF_THE_SEA$"
+      rate: 4.0
+    # 药水 2%
+    potions:
+      materials:
+        - "POTION$"
+        - "^SPLASH_POTION$"
+        - "^LINGERING_POTION$"
+        - "^TIPPED_ARROW$"
+      rate: 2.0
+    # 红石机械 1%
+    redstone:
+      materials:
+        - "^REDSTONE$"
+        - "^REDSTONE_BLOCK$"
+        - "^REPEATER$"
+        - "^COMPARATOR$"
+        - "^PISTON$"
+        - "^STICKY_PISTON$"
+        - "^OBSERVER$"
+        - "^HOPPER$"
+        - "^DROPPER$"
+        - "^DISPENSER$"
+        - "^NOTE_BLOCK$"
+      rate: 1.0
+    # 食物/农牧 1%
+    food:
+      materials:
+        - "^BREAD$"
+        - "^STEAK$"
+        - "^COOKED_PORKCHOP$"
+        - "^COOKED_CHICKEN$"
+        - "^COOKED_MUTTON$"
+        - "^COOKED_COD$"
+        - "^COOKED_SALMON$"
+        - "^COOKED_RABBIT$"
+        - "^COOKED_BEEF$"
+        - "^BAKED_POTATO$"
+        - "^GOLDEN_APPLE$"
+        - "^GOLDEN_CARROT$"
+        - "^APPLE$"
+        - "^MELON_SLICE$"
+        - "^CARROT$"
+        - "^POTATO$"
+        - "^BEETROOT$"
+        - "^SWEET_BERRIES$"
+        - "^CHORUS_FRUIT$"
+        - "^BEEF$"
+        - "^PORKCHOP$"
+        - "^CHICKEN$"
+        - "^MUTTON$"
+        - "^COD$"
+        - "^SALMON$"
+        - "^RABBIT$"
+      rate: 1.0
+    # 建筑方块 1%
+    building:
+      materials:
+        - ".*_BLOCK$"
+        - ".*_PLANKS$"
+        - ".*_LOG$"
+        - ".*_WOOD$"
+        - ".*_BRICKS$"
+        - ".*_CONCRETE$"
+        - ".*_CONCRETE_POWDER$"
+        - ".*_TERRACOTTA$"
+        - ".*_GLASS$"
+        - ".*_GLASS_PANE$"
+        - ".*_WOOL$"
+        - ".*_CARPET$"
+        - ".*_BED$"
+        - ".*_STAINED_GLASS$"
+        - ".*_STAINED_GLASS_PANE$"
+        - ".*_SANDSTONE$"
+        - ".*_PRISMARINE$"
+        - ".*_QUARTZ_BLOCK$"
+        - ".*_COPPER_BLOCK$"
+      rate: 1.0
+
+daily-limit:
+  default: 100
+
+mail:
+  sender: "物流中转站"
+  title-template: "&b✉ &3中转成功 &7%item% &fx%amount%"
+  content-template:
+    - "&3&m                                        "
+    - "&b ✉ &3跨时空中转站 &7· &f物资送达通知"
+    - "&3&m                                        "
+    - ""
+    - "&7尊敬的玩家，您寄送的物资已安全送达！"
+    - ""
+    - "&f▎ &7投递明细:"
+    - "%items_list%"
+    - ""
+    - "&f▎ &7总计: &a%amount% &7件（已扣除税率）"
+    - "&f▎ &7有效期: &e7天 &7请及时取出"
+    - ""
+    - "&3&m                                        "
+    - "&8 物流中转站 · 为您的冒险保驾护航"
+    - "&3&m                                        "
+  expire-time: 604800000
+
+log:
+  enabled: true
+  file-name: "transfers.log"
+
+messages:
+  no-permission: "&c✘ &4权限不足 &7你没有权限执行此操作！"
+  reload-success: "&a✔ &2配置重载 &7插件配置及日志环境已热重载！"
+  limit-reached: "&c✘ &4投递上限 &7你今日的跨时空投递次数已达 &f上限 &7，请明天再来！"
+  invalid-item: "&e⚠ &6非法物品 &7存在不可投递的物品，已自动跳过。"
+  tax-refuse: "&e⚠ &6数量不足 &7该物品数量过少，不足以支撑最低扣税率，已被拒绝。"
+  remaining-insufficient: "&e⚠ &6扣税溢出 &7扣税后该物品剩余数量 &c<1 &7，拒绝中转！"
+  mail-failed: "&c✘ &4发送失败 &7邮件发送遇到异常，请联系管理员！"
+  transfer-success: "&a✔ &2投递成功 &7物品已扣除税率并发送至您的 &b信箱 &7，请及时查收！"
